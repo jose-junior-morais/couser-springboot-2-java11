@@ -16,6 +16,7 @@ import com.educandoweb.course.services.exception.ResourceNotFoundException;
 public class ResourceExceptionHandler {
 
 	@ExceptionHandler(ResourceNotFoundException.class)
+
 	public ResponseEntity<StandardError> ResourceNotFound(ResourceNotFoundException e, HttpServletRequest request){
 		String error= "Resource not found";
 		HttpStatus status = HttpStatus.NOT_FOUND;

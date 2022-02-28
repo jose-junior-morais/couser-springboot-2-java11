@@ -17,17 +17,19 @@ import com.educandoweb.course.services.exception.ResourceNotFoundException;
 
 @Service
 public class UserService {
-	
+
 	@Autowired
 	private UserRepository repository;
 	
-	public List<User> findAll(){
+	public List<User> findAll() {
 		return repository.findAll();
 	}
 	
 	public User findById(Long id) {
+
 		Optional<User> obj= repository.findById(id);
 		return obj.orElseThrow(()-> new ResourceNotFoundException(id));
+
 	}
 	
 	public User insert(User obj) {
@@ -35,6 +37,7 @@ public class UserService {
 	}
 	
 	public void delete(Long id) {
+
 	  try {
 		repository.deleteById(id);
 	  }catch(EmptyResultDataAccessException e) {
